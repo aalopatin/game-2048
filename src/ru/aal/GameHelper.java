@@ -1,4 +1,4 @@
-package com.company;
+package ru.aal;
 
 import javax.swing.text.InternationalFormatter;
 import java.util.*;

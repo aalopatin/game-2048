@@ -1,4 +1,4 @@
-package com.company;
+package ru.aal;
 
 import static java.util.Arrays.*;
 

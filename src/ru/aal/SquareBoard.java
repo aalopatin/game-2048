@@ -1,4 +1,4 @@
-package com.company;
+package ru.aal;
 
 import java.util.*;
 import java.util.stream.Collectors;

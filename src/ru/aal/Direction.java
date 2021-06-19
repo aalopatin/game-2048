@@ -1,4 +1,4 @@
-package com.company;
+package ru.aal;
 
 public enum Direction {
     RIGHT,

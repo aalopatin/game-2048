@@ -1,11 +1,4 @@
-package com.company;
-
-import java.util.ArrayList;
-import static java.util.Arrays.asList;
-import java.util.List;
-
-import static com.company.BoardTest.assertEquals;
-import static java.util.Arrays.asList;
+package ru.aal;
 
 public class TestClass {
 

@@ -1,4 +1,4 @@
-package com.company;
+package ru.aal;
 
 public interface Game {
     void init();
