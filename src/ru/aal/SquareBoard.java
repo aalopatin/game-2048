@@ -58,20 +58,20 @@ public class SquareBoard extends Board {
 
     @Override
     List<Key> getColumn(int j) {
-        return board.keySet()
-                .stream()
-                .filter(key -> key.getJ() == j)
-                .sorted(Comparator.comparingInt(Key::getI))
-                .collect(Collectors.toList());
+        List<Key> column = new ArrayList<>();
+        for (int i = 0; i < height; i++) {
+            column.add(getKey(i, j));
+        }
+        return column;
     }
 
     @Override
     List<Key> getRow(int i) {
-        return board.keySet()
-                .stream()
-                .filter(key -> key.getI() == i)
-                .sorted(Comparator.comparingInt(Key::getJ))
-                .collect(Collectors.toList());
+        List<Key> row = new ArrayList<>();
+        for (int j = 0; j < weight; j++) {
+            row.add(getKey(i, j));
+        }
+        return row;
     }
 
     @Override
