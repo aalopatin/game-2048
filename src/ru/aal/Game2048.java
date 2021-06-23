@@ -30,7 +30,21 @@ public class Game2048 implements Game {
 
     @Override
     public boolean canMove() {
-        return !board.availableSpace().isEmpty();
+        if (!board.availableSpace().isEmpty()) {
+            return true;
+        } else {
+            for (int i = 0; i < GAME_SIZE; i++) {
+                for (int j = 0; j < GAME_SIZE-1; j++) {
+                    Integer current = board.getValue(new Key(i, j));
+                    Integer next = board.getValue(new Key(i, j+1));
+                    if(current.equals(next)) return true;
+                    current = board.getValue(new Key(j, i));
+                    next = board.getValue(new Key(j+1, i));
+                    if(current.equals(next)) return true;
+                }
+            }
+        }
+        return false;
     }
 
     @Override
@@ -80,11 +94,8 @@ public class Game2048 implements Game {
     public void addItem() {
         List<Key> availableSpace = board.availableSpace();
         Integer value = random.nextInt(9) == 9 ? 4 : 2;
-        Key key = availableSpace.get(
-                random.nextInt(
-                        availableSpace.size() - 1
-                )
-        );
+        int index = availableSpace.size() == 1 ? 0 : random.nextInt(availableSpace.size() - 1);
+        Key key = availableSpace.get(index);
         board.addItem(key, value);
     }
 

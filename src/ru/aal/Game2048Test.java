@@ -13,6 +13,7 @@ public class Game2048Test {
         if (!"hello".equals(b2.getValue(b2.getKey(0, 0)))) throw new RuntimeException("board not work =(");
         if (!b2.hasValue("hello")) throw new RuntimeException("board not work =(");
         Board<String, Double> b3 = new Board<>(1, 1) {
+
             @Override
             public void fillBoard(List<Double> list) {
             }
@@ -75,6 +76,10 @@ public class Game2048Test {
         if (!game.canMove()) throw new RuntimeException("canMove not work =(");
         game.addItem();
         if (b.availableSpace().size() != 13) throw new RuntimeException("addItem must be add 1 item");
+
+        b.fillBoard(asList(2, 2, 2, 8, 2, 2, 8, 8, 2, 16, 2, 2, 4, 2, 4, 2048));
+        if (!game.canMove()) throw new RuntimeException("canMove not work =(");
+
     }
 
     private static void assertLists(List l1, List l2) {
