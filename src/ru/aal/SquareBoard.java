@@ -3,14 +3,14 @@ package ru.aal;
 import java.util.*;
 import java.util.stream.Collectors;
 
-public class SquareBoard extends Board {
+public class SquareBoard<V> extends Board<Key, V> {
     public SquareBoard(int size) {
         super(size, size);
     }
 
     @Override
-    void fillBoard(List<Integer> list) {
-        Iterator<Integer> iterator = null;
+    void fillBoard(List<V> list) {
+        Iterator<V> iterator = null;
         if (list != null) {
             iterator = list.iterator();
         }
@@ -30,14 +30,14 @@ public class SquareBoard extends Board {
     List<Key> availableSpace() {
         List<Key> available = new ArrayList<>();
         board.forEach(
-                (key, integer) -> {
-                    if (integer == null) available.add(key);
+                (key, v) -> {
+                    if (v == null) available.add(key);
                 });
         return available;
     }
 
     @Override
-    void addItem(Key key, Integer value) {
+    void addItem(Key key, V value) {
         board.put(key, value);
     }
 
@@ -52,7 +52,7 @@ public class SquareBoard extends Board {
     }
 
     @Override
-    Integer getValue(Key key) {
+    V getValue(Key key) {
         return board.get(key);
     }
 
@@ -75,15 +75,15 @@ public class SquareBoard extends Board {
     }
 
     @Override
-    boolean hasValue(Integer value) {
+    boolean hasValue(V value) {
         return board.values()
                 .stream()
-                .anyMatch(integer -> Objects.equals(integer, value));
+                .anyMatch(v -> Objects.equals(v, value));
     }
 
     @Override
-    List<Integer> getValues(List<Key> keys) {
-        List<Integer> values = new ArrayList<>();
+    List<V> getValues(List<Key> keys) {
+        List<V> values = new ArrayList<>();
 
         for (int i = 0; i < height; i++) {
             for (int j = 0; j < weight; j++) {
