@@ -17,7 +17,7 @@ public class Game2048 implements Game {
 
         List<Integer> initBoard = new ArrayList<>();
 
-        for (int i = 0; i < GAME_SIZE*GAME_SIZE; i++) {
+        for (int i = 0; i < GAME_SIZE * GAME_SIZE; i++) {
             initBoard.add(null);
         }
 
@@ -64,14 +64,11 @@ public class Game2048 implements Game {
                     for (int i = 0; i < GAME_SIZE; i++) {
                         board.addItem(keyList.get(i), newValues.get(i));
                     }
-                } else {
                     countMoves++;
                 }
             }
-            if (countMoves != GAME_SIZE) {
+            if (countMoves > 0) {
                 addItem();
-            } else {
-                return false;
             }
         } else {
             return false;
