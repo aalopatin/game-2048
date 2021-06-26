@@ -34,7 +34,7 @@ public class GameHelper {
             Integer current = listIterator.next();
             if (listIterator.hasNext()) {
                 Integer next = listIterator.next();
-                if (current == next) {
+                if (current.equals(next)) {
                     mergedList.add(current + next);
                 } else {
                     mergedList.add(current);
