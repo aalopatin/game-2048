@@ -35,12 +35,21 @@ public class Game2048 implements Game {
         } else {
             for (int i = 0; i < GAME_SIZE; i++) {
                 for (int j = 0; j < GAME_SIZE-1; j++) {
+
                     Integer current = board.getValue(new Key(i, j));
                     Integer next = board.getValue(new Key(i, j+1));
-                    if(current.equals(next)) return true;
+
+                    if(current.equals(next)) {
+                        return true;
+                    }
+
                     current = board.getValue(new Key(j, i));
                     next = board.getValue(new Key(j+1, i));
-                    if(current.equals(next)) return true;
+
+                    if(current.equals(next)) {
+                        return true;
+                    }
+
                 }
             }
         }

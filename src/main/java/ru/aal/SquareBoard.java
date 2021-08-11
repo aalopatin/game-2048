@@ -27,7 +27,7 @@ public class SquareBoard<V> extends Board<Key, V> {
     }
 
     @Override
-    List<Key> availableSpace() {
+    public List<Key> availableSpace() {
         List<Key> available = new ArrayList<>();
         board.forEach(
                 (key, v) -> {
