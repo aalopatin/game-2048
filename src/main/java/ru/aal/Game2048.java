@@ -9,7 +9,7 @@ public class Game2048 implements Game {
 
     public static final int GAME_SIZE = 4;
     GameHelper helper = new GameHelper();
-    private final Board<Key, Integer> board = new SquareBoard<>(GAME_SIZE);
+    private Board<Key, Integer> board = new SquareBoard<>(GAME_SIZE);
     Random random = new Random();
 
     @Override
