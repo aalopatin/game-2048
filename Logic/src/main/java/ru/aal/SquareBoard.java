@@ -1,7 +1,6 @@
 package ru.aal;
 
 import java.util.*;
-import java.util.stream.Collectors;
 
 public class SquareBoard<V> extends Board<Key, V> {
     public SquareBoard(int size) {
