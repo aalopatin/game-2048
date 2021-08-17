@@ -1,17 +1,16 @@
 package ru.aal;
 
-
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 public abstract class Board<K,V> {
-    int weight;
-    int height;
+    private final int weight;
+    private final int height;
 
     Map<K, V> board = new HashMap<>();
 
-    public Board(int weight, int height) {
+    public Board(final int weight, final int height) {
         this.weight = weight;
         this.height = height;
     }
@@ -25,4 +24,12 @@ public abstract class Board<K,V> {
     abstract List<K> getRow(int i);
     abstract boolean hasValue(V value);
     abstract List<V> getValues(List<K> keys);
+
+    public int getHeight() {
+        return height;
+    }
+
+    public int getWeight() {
+        return weight;
+    }
 }

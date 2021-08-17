@@ -13,8 +13,8 @@ public class SquareBoard<V> extends Board<Key, V> {
         if (list != null) {
             iterator = list.iterator();
         }
-        for (int i = 0; i < height; i++) {
-            for (int j = 0; j < weight; j++) {
+        for (int i = 0; i < getHeight(); i++) {
+            for (int j = 0; j < getWeight(); j++) {
                 Key key = new Key(i, j);
                 if (iterator != null && iterator.hasNext()) {
                     addItem(key, iterator.next());
@@ -58,7 +58,7 @@ public class SquareBoard<V> extends Board<Key, V> {
     @Override
     List<Key> getColumn(int j) {
         List<Key> column = new ArrayList<>();
-        for (int i = 0; i < height; i++) {
+        for (int i = 0; i < getHeight(); i++) {
             column.add(getKey(i, j));
         }
         return column;
@@ -67,7 +67,7 @@ public class SquareBoard<V> extends Board<Key, V> {
     @Override
     List<Key> getRow(int i) {
         List<Key> row = new ArrayList<>();
-        for (int j = 0; j < weight; j++) {
+        for (int j = 0; j < getWeight(); j++) {
             row.add(getKey(i, j));
         }
         return row;
@@ -84,8 +84,8 @@ public class SquareBoard<V> extends Board<Key, V> {
     List<V> getValues(List<Key> keys) {
         List<V> values = new ArrayList<>();
 
-        for (int i = 0; i < height; i++) {
-            for (int j = 0; j < weight; j++) {
+        for (int i = 0; i < getHeight(); i++) {
+            for (int j = 0; j < getWeight(); j++) {
                 Key key = getKey(i, j);
                 if (keys.contains(key)) {
                     values.add(getValue(key));
